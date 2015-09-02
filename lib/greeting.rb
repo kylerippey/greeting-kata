@@ -1,9 +1,13 @@
 class Greeting
-  def self.greet(name)
-    name ||= "my friend"
+  def self.greet(names)
+    names ||= "my friend"
+    names = Array(names)
 
-    name = Array(name).join(' and ')
-
-    name == name.upcase ? "HELLO, #{name}!" : "Hello, #{name}."
+    if names.length >= 3
+      last_name = names.pop
+      names.all? { |n| n == n.upcase } ? "HELLO, #{names.join(', ')}, and #{last_name}!" : "Hello, #{names.join(', ')}, and #{last_name}."
+    else
+      names.all? { |n| n == n.upcase } ? "HELLO, #{names.join(' and ')}!" : "Hello, #{names.join(' and ')}."
+    end
   end
 end
