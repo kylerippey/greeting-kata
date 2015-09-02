@@ -11,4 +11,8 @@ class GreetingTest < Minitest::Test
   def test_should_handle_shouting
     assert_equal "HELLO, JERRY!", Greeting.greet("JERRY")
   end
+
+  def test_should_handle_multiple_names
+    assert_equal "Hello, Jill and Jane.", Greeting.greet(["Jill", "Jane"])
+  end
 end
