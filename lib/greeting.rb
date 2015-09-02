@@ -5,7 +5,9 @@ class Greeting
 
     if names.length >= 3
       last_name = names.pop
-      names.all? { |n| n == n.upcase } ? "HELLO, #{names.join(', ')}, and #{last_name}!" : "Hello, #{names.join(', ')}, and #{last_name}."
+      comma_seperated_names = names.join(', ')
+      greeting = "Hello, #{comma_seperated_names}, and #{last_name}."
+      names.all? { |n| n == n.upcase } ? greeting.upcase : greeting
     else
       names.all? { |n| n == n.upcase } ? "HELLO, #{names.join(' and ')}!" : "Hello, #{names.join(' and ')}."
     end
